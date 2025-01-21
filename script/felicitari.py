@@ -153,7 +153,6 @@ def replace_placeholders_in_html(user_uuid):
 
 
 def main():
-    os.chdir("./valentine/script")
     user_uuid = uuid.uuid4()
     tmp_folder = f"tmp_{user_uuid}"
 
