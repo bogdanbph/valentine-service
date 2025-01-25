@@ -1,112 +1,112 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
-  <head>
+<head>
     <!--Astea nu se schimba-->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>[[TITLE]]</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <meta name="theme-color" content="#e57fe7" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta name="theme-color" content="#e57fe7"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Modak&family=Mogra&family=Titan+One&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Modak&family=Mogra&family=Titan+One&display=swap"
+            rel="stylesheet"
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website"/>
 
     <!--Content e Descriere Invitatie Valentine's Day Pentru [partener] De la [ Nume ]-->
     <meta
-      name="description"
-      id="previewDescription"
-      content="O Invitație Specială de Valentine's Day"
+            name="description"
+            id="previewDescription"
+            content="O Invitație Specială de Valentine's Day"
     />
 
     <!--Content e Descriere Invitatie Valentine's Day Pentru [partener] De la [ Nume ]-->
     <meta
-      property="og:title"
-      id="previewTitle"
-      content="[[META_PREVIEW_TITLE]]"
+            property="og:title"
+            id="previewTitle"
+            content="[[META_PREVIEW_TITLE]]"
     />
 
     <!--Acesta va fi url-ul care va fi generat flecitarivalentine/partener-nume-uid-->
-    <meta property="og:url" id="previewURL" content="[[META_PREVIEW_URL]]" />
+    <meta property="og:url" id="previewURL" content="[[META_PREVIEW_URL]]"/>
 
     <!--Acesta va fi unul din cele 5 imagini de thumbnail pe care le poate alege va da catre felcitarivalentine.com/assets/thumbnail-1.jpg sau thumbnail-2.jpg etc -->
     <!--[[META_PREVIEW_IMAGE]]-->
     <meta
-      property="og:image"
-      id="previewImage"
-      content="[[META_PREVIEW_IMAGE]]"
+            property="og:image"
+            id="previewImage"
+            content="[[META_PREVIEW_IMAGE]]"
     />
 
     <!--O sa fac eu un favicon care va si la site-->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.ico" sizes="any"/>
 
     <script defer="defer" src="./js/app.js"></script>
-  </head>
+</head>
 
-  <body>
-    <!-- <div class="overlay"></div> -->
-    <div id="textContainer" class="title-container">
-      <h2 id="title" class="text-title" id="title-felecitare">
-        Dragă <span id="numePartener">Alexandra</span>,
-      </h2>
-      <h2 id="subtitle" class="text-subtitle" id="subtitle-felecitare">
-        Vrei să fii <span id="genPartener"> partenera </span> mea de Valentine's
+<body>
+<!-- <div class="overlay"></div> -->
+<div id="textContainer" class="title-container">
+    <h2 id="title" class="text-title" id="title-felecitare">
+        Dragă <span id="numePartener">[[PARTNER]]</span>,
+    </h2>
+    <h2 id="subtitle" class="text-subtitle" id="subtitle-felecitare">
+        Vrei să fii <span id="genPartener"> [[GENDER]] </span> de Valentine's
         Day?
-      </h2>
-    </div>
+    </h2>
+</div>
 
-    <div id="textContainerFelcitari" class="flex">
-      <a class="back-vid" href="">Înapoi la video</a>
+<div id="textContainerFelcitari" class="flex">
+    <a class="back-vid second-part-text" href="">Înapoi la video</a>
 
-      <!--STATIC-->
-      <h2 class="second-part-title">
+    <!--STATIC-->
+    <h2 class="second-part-title">
         Minunată alegere! <span class="no-text-shadow">&#x2764;</span>
-      </h2>
-      <!--STATIC-->
-      <h2 class="second-part-subtitle">
-        Abia aștept să ne întâlnim de <br />Valentine's Day!
-      </h2>
+    </h2>
+    <!--STATIC-->
+    <h2 class="second-part-subtitle">
+        Abia aștept să ne întâlnim de <br/>Valentine's Day!
+    </h2>
 
-      <!--Mesaj personalizat de 200 caractere-->
-      <h3 class="second-part-text" id="mesajCustom">[[CUSTOM_MESSAGE]]</h3>
+    <!--Mesaj personalizat de 200 caractere-->
+    <h3 class="second-part-text" id="mesajCustom">[[CUSTOM_MESSAGE]]</h3>
 
-      <div>
+    <div>
         <!--STATIC-->
         <h3 class="second-part-text">Detaliile întâlnirii :</h3>
 
         <!-- Asta e daca trece restaurant ( avem locatie ) adica ii bagi getElementById().style.display = "none" sau cum e python-->
-        [[ITINERARY]]
-      </div>
+        <h3 class="second-part-text">[[ITINERARY]]</h3>
+    </div>
 
-      <!--Finalul felictarii -->
-      <!--Mesaj custom "<finalMesaj>Te iubesc, [partener]! sau Cu drag, [partener]!"-->
-      <!--[[FINAL_MESSAGE]]-->
-      <h2 class="second-part-subtitle final-mesaj">
+    <!--Finalul felictarii -->
+    <!--Mesaj custom "<finalMesaj>Te iubesc, [partener]! sau Cu drag, [partener]!"-->
+    <!--[[FINAL_MESSAGE]]-->
+    <h2 class="second-part-subtitle final-mesaj">
         <span id="finalMesaj">Te iubesc,</span>
-        <br />
-        <span id="nume">Vlad</span>
+        <br/>
+        <span id="nume">[[VALENTINE]]</span>
         !<span class="no-text-shadow">&#x2764;</span>
-      </h2>
-    </div>
+    </h2>
+</div>
 
-    <video id="valentineVideo" controls>
-      <source src="[[VIDEO]]#t=0.1" type="video/mp4" />
-    </video>
+<video id="valentineVideo" controls>
+    <source src="[[VIDEO]]#t=0.1" type="video/mp4"/>
+</video>
 
-    <div>
-      <button class="button" id="yesButton">DA</button>
-      <button class="button" id="noButton">NU</button>
-    </div>
+<div>
+    <button class="button" id="yesButton">DA</button>
+    <button class="button" id="noButton">NU</button>
+</div>
 
-    <footer class="footer">
-      <p class="footer-text">
+<footer class="footer">
+    <p class="footer-text">
         Powered with &#x2764; by
         <a href="https://www.vrxfuturelabs.ro">VRX Future Labs</a>
-      </p>
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+    </p>
+</footer>
+<script src="js/app.js"></script>
+</body>
 </html>

@@ -23,6 +23,9 @@ BACKGROUND_MUSIC = "audio/song.mp3"  # Path to the background music file
 # HTML Constants
 TITLE = "[[TITLE]]"
 VIDEO = "[[VIDEO]]"
+PARTNER = "[[PARTNER]]"
+VALENTINE = "[[VALENTINE]]"
+GENDER = "[[GENDER]]"
 
 META_PREVIEW_TITLE = "[[META_PREVIEW_TITLE]]"
 META_PREVIEW_URL = "[[META_PREVIEW_URL]]"
@@ -60,7 +63,10 @@ default_values = {
     META_PREVIEW_IMAGE: "https://default.image",
     CUSTOM_MESSAGE: "Default custom message",
     ITINERARY_DETAILS: "Default itinerary details",
-    FINAL_MESSAGE: "Default final message"
+    FINAL_MESSAGE: "Default final message",
+    PARTNER: "Default Name",
+    VALENTINE: "Valentine",
+    GENDER: "partenera"
 }
 
 
@@ -130,11 +136,14 @@ def replace_placeholders_in_html(user_uuid):
     parser.add_argument('--custom_message', help='Custom Message')
     parser.add_argument('--itinerary_details', help='Itinerary Details')
     parser.add_argument('--final_message', help='Final Message')
+    parser.add_argument('--valentine', help='Valentine`s Name')
+    parser.add_argument('--partner', help='Partner`s Name')
+    parser.add_argument('--gender', help='Partner`s Gender')
 
     args = parser.parse_args()
 
-    file_path = "../index_" + user_uuid.__str__() + ".html"
-    shutil.copy("../index.html", file_path)
+    file_path = "/var/www/html/index_" + str(args.partner).lower() + "-" + str(args.valentine).lower() + "-" + user_uuid.__str__() + ".html"
+    shutil.copy("/var/www/html/index.html", file_path)
 
     with open(file_path, "r", encoding="utf-8") as file:
         html_content = file.read()
@@ -146,6 +155,9 @@ def replace_placeholders_in_html(user_uuid):
     html_content = html_content.replace(CUSTOM_MESSAGE, args.custom_message or default_values[CUSTOM_MESSAGE])
     html_content = html_content.replace(ITINERARY_DETAILS, args.itinerary_details or default_values[ITINERARY_DETAILS])
     html_content = html_content.replace(FINAL_MESSAGE, args.final_message or default_values[FINAL_MESSAGE])
+    html_content = html_content.replace(PARTNER, args.partner or default_values[PARTNER])
+    html_content = html_content.replace(GENDER, "partenerul meu" if args.gender == "M" else "partenera mea")
+    html_content = html_content.replace(VALENTINE, args.valentine or default_values[VALENTINE])
     html_content = html_content.replace(VIDEO, "video/video_" + user_uuid.__str__() + ".mp4")
 
     with open(file_path, "w", encoding="utf-8") as file:
@@ -153,7 +165,7 @@ def replace_placeholders_in_html(user_uuid):
 
 
 def main():
-    user_uuid = uuid.uuid4()
+    user_uuid = str(uuid.uuid4())[:8]
     tmp_folder = f"tmp_{user_uuid}"
 
     os.makedirs(tmp_folder)
@@ -184,7 +196,7 @@ def main():
     video = video.with_duration(video.duration)
 
     # Save the final video
-    video.write_videofile("../video/" + OUTPUT_VIDEO + user_uuid.__str__() + ".mp4", codec="libx264", fps=24,
+    video.write_videofile("/var/www/html/video/" + OUTPUT_VIDEO + user_uuid.__str__() + ".mp4", codec="libx264", fps=24,
                           audio_codec="aac")
 
     print(f"Video with fade transitions and audio saved as {OUTPUT_VIDEO + user_uuid.__str__()}.mp4")
